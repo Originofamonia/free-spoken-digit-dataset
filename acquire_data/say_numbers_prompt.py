@@ -43,22 +43,22 @@ def generate_number_sequence():
 def show_numbers():
     nums = generate_number_sequence()
 
-    print "Get ready..."
+    print("Get ready...")
     time.sleep(1)
 
     t_start = time.time()
     for i, num in enumerate(nums):
         if (float(i)/len(nums) * 100) % 10 == 0:
-            print "\n====", float(i)/len(nums)*100, "% done====\n"
+            print("\n====", float(i)/len(nums)*100, "% done====\n")
         else:
-            print ""
+            print("")
 
         t_next_display = t_start + (i + 1) * DELAY_BETWEEN_NUMBERS
         t_next_blank = t_next_display + 2.5
 
         # display a number
         wait_until(t_next_display)
-        print num
+        print(num)
 
         # blank
         wait_until(t_next_blank)

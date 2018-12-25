@@ -40,19 +40,21 @@ class FSDD:
             data_dir (string): Path to the directory containing the spectrograms.
 
         Returns:
-            (spectrograms, labels): a tuple of containing lists of spectrograms images(as numpy arrays) and their corresponding labels as strings
+            (spectrograms, labels): a tuple of containing lists of spectrograms images(as numpy arrays) and their
+            corresponding labels as strings
         """
         spectrograms = []
         labels = []
 
         if data_dir is None:
             data_dir = os.path.dirname(__file__) + '/../spectrograms'
-            print data_dir
+            print(data_dir)
 
         file_paths = [f for f in os.listdir(data_dir) if os.path.isfile(os.path.join(data_dir, f)) and '.png' in f]
 
         if len(file_paths) == 0:
-            raise Exception('There are no files in the spectrogram directory. Make sure to run the spectrogram.py before calling this function.')
+            raise Exception('There are no files in the spectrogram directory. Make sure to run the spectrogram.py '
+                            'before calling this function.')
 
         for file_name in file_paths:
             label = file_name[0]
@@ -61,3 +63,9 @@ class FSDD:
             labels.append(label)
 
         return spectrograms, labels
+
+
+def main():
+    data_dir = './recordings/'
+    f1 = FSDD(data_dir)
+    f1.get_spectrograms(data_dir)

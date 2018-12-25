@@ -61,10 +61,9 @@ def split_wav(start_offset, secs_between_numbers, secs_per_number):
         outfile = 'recordings' + os.sep + outfile
 
         # Write audio chunk to file
-        print "writing", outfile
+        print("writing", outfile)
         write(outfile, rate, digit_audio_trimmed)
         counts[label] += 1
-
 
 
 def trim_silence(audio, n_noise_samples=1000, noise_factor=1.0, mean_filter_size=100):
